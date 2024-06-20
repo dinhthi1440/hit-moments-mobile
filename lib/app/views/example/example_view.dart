@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:hit_moments/app/l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+//import 'package:hit_moments/app/l10n/l10n.dart';
+import 'package:hit_moments/app/providers/language_provider.dart';
+import 'package:provider/provider.dart';
 
 class ExampleView extends StatefulWidget {
   const ExampleView({super.key});
@@ -13,10 +18,11 @@ class _ExampleViewState extends State<ExampleView> {
 
   @override
   Widget build(BuildContext context) {
+    print(Platform.localeName);
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text(S.of(context).hello),
+        child: Text(AppLocalizations.of(context)!.hello),
       ),
       bottomNavigationBar: Container(
         child: Switch(
@@ -24,6 +30,11 @@ class _ExampleViewState extends State<ExampleView> {
             setState(() {
               _value = value;
               print(value);
+              if (value) {
+                context.read<LocaleProvider>().changeLocale(const Locale('en'));
+              } else {
+                context.read<LocaleProvider>().changeLocale(const Locale('vi'));
+              }
             });
           },
           value: _value,

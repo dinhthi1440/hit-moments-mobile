@@ -25,28 +25,28 @@ class MyApp extends StatelessWidget {
       providers: [
         ...listProviders.map((e) => ChangeNotifierProvider(create: (context) => e)),
 
-        //provider ngôn ngữ riêng
+        //provider ngôn ngữ làm riêng
         ChangeNotifierProvider(
           create: (context) => locale,
         )
       ],
       child: Consumer<LocaleProvider>(
-        builder: (context, provider, child) => MaterialApp(
-          title: AppConfig.appName,
-          locale: provider.locale,
-          // themeAnimationCurve: Curves.easeIn,
-          // themeAnimationDuration: const Duration(milliseconds: 500),
-          debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.SPASH,
-          routes: AppPages.routes,
-          supportedLocales: L10n.all,
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            AppLocalizations.delegate,
-          ],
-        ),
+        builder: (context, provider, child) {
+          return MaterialApp(
+            title: AppConfig.appName,
+            locale: provider.locale,
+            debugShowCheckedModeBanner: false,
+            initialRoute: AppRoutes.SPASH,
+            routes: AppPages.routes,
+            supportedLocales: L10n.all,
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              AppLocalizations.delegate,
+            ],
+          );
+        },
       ),
     );
   }

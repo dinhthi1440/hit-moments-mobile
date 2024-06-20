@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 enum LanguageType {
   English(Locale('en'), 'English'),
-  Vietnamese(Locale('vn'), 'TIếng Việt');
+  Vietnamese(Locale('vi'), 'TIếng Việt');
 
   final Locale locale;
   final String nameLanguage;
@@ -16,9 +16,6 @@ class L10n {
   static final all = LanguageType.values.map(
     (e) => e.locale,
   );
-
-  
-
 }
 
 ///S.of(context). .... Để lấy ngôn ngữ
