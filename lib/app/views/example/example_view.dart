@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hit_moments/app/l10n/l10n.dart';
 
 class ExampleView extends StatefulWidget {
   const ExampleView({super.key});
@@ -14,8 +15,8 @@ class _ExampleViewState extends State<ExampleView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Center(
-        child: Text('hehe'),
+      body: Center(
+        child: Text(S.of(context).hello),
       ),
       bottomNavigationBar: Container(
         child: Switch(

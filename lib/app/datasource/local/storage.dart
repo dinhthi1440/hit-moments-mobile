@@ -1,5 +1,6 @@
 // Những cái gì lưu vào local, dùng key - value thì code ở đây
 
+import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:hit_moments/app/core/constants/storage_constants.dart';
 
@@ -17,8 +18,8 @@ setLocaleLocal(String languageCode) {
   box.write(StorageConstants.localeLocal, languageCode);
 }
 
-String getLocaleLocal() {
-  return box.read(StorageConstants.localeLocal) ?? '';
+Locale getLocaleLocal() {
+  return Locale(box.read(StorageConstants.localeLocal) ?? 'vi');
 }
 
 setIsFirstTime() {
