@@ -6,6 +6,7 @@ import 'package:hit_moments/app/core/config/app_config.dart';
 import 'package:hit_moments/app/l10n/l10n.dart';
 import 'package:hit_moments/app/providers/language_provider.dart';
 import 'package:hit_moments/app/providers/providers_list.dart';
+import 'package:hit_moments/app/providers/theme_provider.dart';
 import 'package:hit_moments/app/routes/app_pages.dart';
 import 'package:hit_moments/app/routes/app_routes.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
             title: AppConfig.appName,
             locale: provider.locale,
             debugShowCheckedModeBanner: false,
+            theme: Provider.of<ThemeProvider>(context).themeData,
             initialRoute: AppRoutes.SPASH,
             routes: AppPages.routes,
             supportedLocales: L10n.all,

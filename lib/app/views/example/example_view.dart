@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hit_moments/app/core/config/theme_config.dart';
 //import 'package:hit_moments/app/l10n/l10n.dart';
 import 'package:hit_moments/app/providers/language_provider.dart';
+import 'package:hit_moments/app/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class ExampleView extends StatefulWidget {
@@ -32,8 +34,10 @@ class _ExampleViewState extends State<ExampleView> {
               print(value);
               if (value) {
                 context.read<LocaleProvider>().changeLocale(const Locale('en'));
+                context.read<ThemeProvider>().setThemeData(AppTheme.darkTheme);
               } else {
                 context.read<LocaleProvider>().changeLocale(const Locale('vi'));
+                context.read<ThemeProvider>().setThemeData(AppTheme.lightTheme);
               }
             });
           },
