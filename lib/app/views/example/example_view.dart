@@ -24,14 +24,16 @@ class _ExampleViewState extends State<ExampleView> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text(AppLocalizations.of(context)!.hello),
+        child: Text(AppLocalizations.of(context)!.hello, style: TextStyle(
+          fontFamily: 'Dongle',
+          fontWeight: FontWeight.bold
+        ),),
       ),
       bottomNavigationBar: Container(
         child: Switch(
           onChanged: (value) {
             setState(() {
               _value = value;
-              print(value);
               if (value) {
                 context.read<LocaleProvider>().changeLocale(const Locale('en'));
                 context.read<ThemeProvider>().setThemeData(AppTheme.darkTheme);
